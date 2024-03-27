@@ -1,0 +1,2 @@
+<?php
+ define( 'BLOCKS_PATH', ABSPATH . WPINC . '/blocks/' ); require BLOCKS_PATH . 'legacy-widget.php'; require BLOCKS_PATH . 'widget-group.php'; require BLOCKS_PATH . 'require-dynamic-blocks.php'; function register_core_block_types_from_metadata() { $block_folders = require BLOCKS_PATH . 'require-static-blocks.php'; foreach ( $block_folders as $block_folder ) { register_block_type( BLOCKS_PATH . $block_folder ); } } add_action( 'init', 'register_core_block_types_from_metadata' ); 
